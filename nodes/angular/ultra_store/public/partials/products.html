@@ -1,0 +1,38 @@
+<div class="row col-sm-3 side_bar" ng-controller="Products">
+	<input type="text" class="form-control" placeholder="search...">
+	<button class="btn btn-primary">Filter</button>
+	<h4>Add a New Product</h4>
+	<label>Name:</label><input type="text" class="form-control" ng-model="new_prod.name">
+	<label>Image (url):</label><input type="url" class="form-control" ng-model="new_prod.url" placeholder="http://">
+	<label>Description:</label><textarea class="form-control" ng-model="new_prod.desc"></textarea>
+	<label>Initial Quantity:</label>
+	<input type="number" ng-model="new_prod.quantity" class="form-control" min="1" max="99">
+	<button class="btn btn-primary" ng-click="">Create</button>
+</div>
+<div class="row col-sm-8 col-sm-offset-1 product_area" ng-controller="Products">
+	<div class="col-sm-3">
+		<img src=" http://fillmurray.com/200/300" alt="" lass="col-sm-12">
+		<strong lass="col-sm-12">Bill Murray</strong>
+		<p lass="col-sm-12">(10 left)</p>
+	</div>
+	<div class="col-sm-3">
+		<img src=" http://fillmurray.com/200/300" alt="" lass="col-sm-12">
+		<strong lass="col-sm-12">Bill Murray</strong>
+		<p lass="col-sm-12">(1 left)</p>
+	</div>
+	<div class="col-sm-3">
+		<img src=" http://fillmurray.com/200/300" alt="" lass="col-sm-12">
+		<strong lass="col-sm-12">Bill Murray</strong>
+		<p lass="col-sm-12">(29 left)</p>
+	</div>
+	<div class="col-sm-3">
+		<img src=" http://fillmurray.com/200/300" alt="" lass="col-sm-12">
+		<strong lass="col-sm-12">Bill Murray</strong>
+		<p lass="col-sm-12">(8 left)</p>
+	</div>
+	<div class="col-sm-3">
+		<img src=" http://fillmurray.com/200/300" alt="" lass="col-sm-12">
+		<strong lass="col-sm-12">Bill Murray</strong>
+		<p lass="col-sm-12">(18 left)</p>
+	</div>
+</div>

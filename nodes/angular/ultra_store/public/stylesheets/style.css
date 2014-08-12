@@ -1,0 +1,14 @@
+
+img {
+	height: 100px;
+	width: 100px;	
+}
+
+.side_bar {
+	display: inline-block;
+}
+
+.product_area {
+	table-layout: fixed;
+	vertical-align: top;
+}
