@@ -1,26 +1,27 @@
-StoreApp.factory('CustomerFactory', function ($http) {
+StoreApp.factory('socket', function ($rootScope) {
+	var socket = io.connect();
 	var factory = {};
-	var customers = [
-		{name: "Ksenia Solo", created_at: Date.now()},
-		{name: "Bill Murray", created_at: Date.now()},
-		{name: "Deborah Ann Woll", created_at: Date.now()}
-	];
 
-	factory.show = function () {
-		return customers;
+	factory.on = function (eventName, callback) {
+		socket.on(eventName, function () {
+			var args = arguments;
+			// console.log("eventname", eventName, 'callback', callback, 'arguments', args);
+			$rootScope.$apply(function () {
+				callback.apply(socket, args);
+			});
+		});
+	},
+		
+	factory.emit = function (eventName, data, callback) {
+		socket.emit(eventName, data, function () {
+			var args = arguments;
+			$rootScope.$apply(function () {
+				if(callback) {
+					callback.apply(socket, args);
+				}
+			});
+		});
 	}
 
-	factory.create = function (new_cust) {
-		console.log(new_cust);
-		customers.push({
-			name: new_cust.name,
-			created_at: Date.now()
-		})
-		console.log(customers);
-	}
-
-	factory.destroy = function (id) {
-		customers.splice(id, 1);
-	}
 	return factory;
 })
